@@ -7,7 +7,7 @@ set -e
 ####
 
 # download build scripts from github
-curl --connect-timeout 5 --max-time 600 --retry 5 --retry-delay 0 --retry-max-time 60 -o /tmp/scripts-master.zip -L https://github.com/binhex/scripts/archive/master.zip
+curl --connect-timeout 5 --max-time 600 --retry 5 --retry-delay 0 --retry-max-time 60 -o /tmp/scripts-master.zip -L https://github.com/rcannizzaro/scripts/archive/master.zip
 
 # unzip build scripts
 unzip /tmp/scripts-master.zip -d /tmp
@@ -35,7 +35,7 @@ fi
 ####
 
 # define pacman packages
-pacman_packages="ttf-dejavu xorg-fonts-misc terminus-font ttf-dejavu xfce4-terminal tint2 xorg-server-xvfb tigervnc openbox obconf python2-xdg lxappearance xcompmgr cantarell-fonts python-pip python-numpy"
+pacman_packages="ttf-dejavu xorg-fonts-misc terminus-font ttf-dejavu xfce4-terminal tint2 xorg-server-xvfb tigervnc openbox obconf python2-xdg lxappearance xcompmgr cantarell-fonts python-pip python-numpy feh"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -60,26 +60,29 @@ pip install websockify PyXDG
 ####
 
 # download gtk icon theme (dark)
-curly.sh -of "/tmp/gtk-icon.zip" -url "https://github.com/binhex/themes/raw/master/gtk/icon-themes/BLACK-Ice-Numix-FLAT_1.4.1.zip"
+curly.sh -of "/tmp/gtk-icon.zip" -url "https://github.com/rcannizzaro/DevEnv-Themes/raw/master/gtk/icon-themes/BLACK-Ice-Numix-FLAT_1.4.1.zip"
 
 # unpack gtk icon theme to home dir
 unzip -d "/home/nobody/.icons/" "/tmp/gtk-icon.zip"
 
 # download gtk widget theme (light)
-curly.sh -of "/tmp/gtk-widget-light.zip" -url "https://github.com/binhex/themes/raw/master/gtk/widget-theme/Ultimate-Maia-Blue-light-v3.34.zip"
+curly.sh -of "/tmp/gtk-widget-light.zip" -url "https://github.com/rcannizzaro/DevEnv-Themes/raw/master/gtk/widget-theme/Ultimate-Maia-Blue-light-v3.34.zip"
 
 # download gtk widget theme (dark)
-curly.sh -of "/tmp/gtk-widget-dark.zip" -url "https://github.com/binhex/themes/raw/master/gtk/widget-theme/Ultimate-Maia-Blue-dark-v3.34.zip"
+curly.sh -of "/tmp/gtk-widget-dark.zip" -url "https://github.com/rcannizzaro/DevEnv-Themes/raw/master/gtk/widget-theme/Ultimate-Maia-Blue-dark-v3.34.zip"
 
 # unpack gtk widget theme to home dir
 unzip -d "/home/nobody/.themes/" "/tmp/gtk-widget-light.zip"
 unzip -d "/home/nobody/.themes/" "/tmp/gtk-widget-dark.zip"
 
 # download openbox theme (dark and light)
-curly.sh -of "/tmp/openbox-theme.tar.gz" -url "https://github.com/binhex/themes/raw/master/openbox/Adwaita-Revisited-for-Openbox.tar.gz"
+curly.sh -of "/tmp/openbox-theme.tar.gz" -url "https://github.com/rcannizzaro/DevEnv-Themes/raw/master/openbox/Adwaita-Revisited-for-Openbox.tar.gz"
 
 # unpack openbox theme to home dir
 tar -xvf "/tmp/openbox-theme.tar.gz" -C "/home/nobody/.themes/"
+
+# get wallpaper
+curly.sh -of "/home/nobody/.themes/wallpaper.png" -url "https://github.com/rcannizzaro/DevEnv-Themes/raw/master/wallpaper.png"
 
 # copy gtk-3.0 settings to home directory (sets gtk widget and icons)
 mkdir -p /home/nobody/.config/gtk-3.0

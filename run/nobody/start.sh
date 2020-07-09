@@ -81,6 +81,8 @@ fi
 # start dbus (required for libreoffice menus to be viewable when started via openbox right click menu) and launch openbox (window manager)
 dbus-launch openbox-session &
 
+sleep 2s; feh --bg-scale "/home/nobody/.themes/wallpaper.png" &
+
 # run xcomppmgr (required for transparency support for tint2)
 sleep 2s; xcompmgr &
 

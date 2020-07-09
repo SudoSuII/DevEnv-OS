@@ -1,5 +1,5 @@
-FROM binhex/arch-base:latest
-MAINTAINER binhex
+FROM rcannizzaro/devenv-arch-base:latest
+MAINTAINER rcannizzaro
 
 # additional files
 ##################
