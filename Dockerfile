@@ -16,6 +16,9 @@ ADD run/nobody/*.sh /home/nobody/
 # add pre-configured config files for nobody
 ADD config/nobody/ /home/nobody/.build/
 
+# Add custom pacman.conf
+ADD build/root/pacman.conf /etc/pacman.conf
+
 # install app
 #############
 
