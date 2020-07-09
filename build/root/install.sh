@@ -39,7 +39,7 @@ pacman_packages="ttf-dejavu xorg-fonts-misc terminus-font ttf-dejavu xfce4-termi
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
-	pacman -S --needed $pacman_packages --noconfirm
+	pacman -Sy --needed $pacman_packages --noconfirm
 fi
 
 # aur packages
