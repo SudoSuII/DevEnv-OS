@@ -1,5 +1,5 @@
-FROM binhex/arch-base:latest
-MAINTAINER binhex
+FROM rcannizzaro/devenv-arch-base:latest
+MAINTAINER rcannizzaro
 
 # additional files
 ##################
@@ -15,6 +15,9 @@ ADD run/nobody/*.sh /home/nobody/
 
 # add pre-configured config files for nobody
 ADD config/nobody/ /home/nobody/.build/
+
+# Add custom pacman.conf
+ADD build/root/pacman.conf /etc/pacman.conf
 
 # install app
 #############
