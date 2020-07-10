@@ -83,7 +83,7 @@ pip install websockify PyXDG
 # tar -xvf "/tmp/openbox-theme.tar.gz" -C "/home/nobody/.themes/"
 
 # get wallpaper
-curly.sh -of "/home/nobody/.themes/wallpaper.png" -url "https://github.com/rcannizzaro/DevEnv-Themes/blob/master/wallpaper.png"
+curly.sh -of "/home/nobody/.themes/wallpaper.png" -url "https://raw.githubusercontent.com/rcannizzaro/DevEnv-Themes/master/wallpaper.png"
 
 # copy gtk-3.0 settings to home directory (sets gtk widget and icons)
 mkdir -p /home/nobody/.config/gtk-3.0
