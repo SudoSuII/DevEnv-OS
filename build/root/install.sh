@@ -35,7 +35,7 @@ fi
 ####
 
 # define pacman packages
-pacman_packages="ttf-dejavu xorg-fonts-misc terminus-font ttf-dejavu xfce4-terminal tint2 xorg-server-xvfb tigervnc openbox obconf python2-xdg lxappearance xcompmgr cantarell-fonts python-pip python-numpy"
+pacman_packages="xorg-fonts-misc xorg-server-xvfb tigervnc python2-xdg lxappearance xcompmgr python-pip python-numpy ttf-dejavu terminus-font ttf-dejavu cantarell-fonts gnu-free-fonts"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -46,7 +46,7 @@ fi
 ####
 
 # define aur packages
-aur_packages="obmenu ttf-font-awesome novnc hsetroot"
+aur_packages="dwm-distrotube-git dmenu2 surf st novnc hsetroot ttf-font-awesome"
 
 # call aur install script (arch user repo)
 source aur.sh
@@ -60,38 +60,32 @@ pip install websockify PyXDG
 ####
 
 # download gtk icon theme (dark)
-curly.sh -of "/tmp/gtk-icon.zip" -url "https://github.com/binhex/themes/raw/master/gtk/icon-themes/BLACK-Ice-Numix-FLAT_1.4.1.zip"
+# curly.sh -of "/tmp/gtk-icon.zip" -url "https://github.com/binhex/themes/raw/master/gtk/icon-themes/BLACK-Ice-Numix-FLAT_1.4.1.zip"
 
 # unpack gtk icon theme to home dir
-unzip -d "/home/nobody/.icons/" "/tmp/gtk-icon.zip"
+# unzip -d "/home/nobody/.icons/" "/tmp/gtk-icon.zip"
 
 # download gtk widget theme (light)
-curly.sh -of "/tmp/gtk-widget-light.zip" -url "https://github.com/binhex/themes/raw/master/gtk/widget-theme/Ultimate-Maia-Blue-light-v3.34.zip"
+# curly.sh -of "/tmp/gtk-widget-light.zip" -url "https://github.com/binhex/themes/raw/master/gtk/widget-theme/Ultimate-Maia-Blue-light-v3.34.zip"
 
 # download gtk widget theme (dark)
-curly.sh -of "/tmp/gtk-widget-dark.zip" -url "https://github.com/binhex/themes/raw/master/gtk/widget-theme/Ultimate-Maia-Blue-dark-v3.34.zip"
+# curly.sh -of "/tmp/gtk-widget-dark.zip" -url "https://github.com/binhex/themes/raw/master/gtk/widget-theme/Ultimate-Maia-Blue-dark-v3.34.zip"
 
 # unpack gtk widget theme to home dir
-unzip -d "/home/nobody/.themes/" "/tmp/gtk-widget-light.zip"
-unzip -d "/home/nobody/.themes/" "/tmp/gtk-widget-dark.zip"
-
-# download openbox theme (dark and light)
-curly.sh -of "/tmp/openbox-theme.tar.gz" -url "https://github.com/binhex/themes/raw/master/openbox/Adwaita-Revisited-for-Openbox.tar.gz"
-
-# unpack openbox theme to home dir
-tar -xvf "/tmp/openbox-theme.tar.gz" -C "/home/nobody/.themes/"
+# unzip -d "/home/nobody/.themes/" "/tmp/gtk-widget-light.zip"
+# unzip -d "/home/nobody/.themes/" "/tmp/gtk-widget-dark.zip"
 
 # copy gtk-3.0 settings to home directory (sets gtk widget and icons)
 mkdir -p /home/nobody/.config/gtk-3.0
 cp /home/nobody/.build/gtk/config/settings.ini /home/nobody/.config/gtk-3.0/settings.ini
 
 # copy settings to home directory (sets openbox theme and fonts)
-mkdir -p /home/nobody/.config/openbox
-cp /home/nobody/.build/openbox/config/rc.xml /home/nobody/.config/openbox/rc.xml
+#mkdir -p /home/nobody/.config/openbox
+#cp /home/nobody/.build/openbox/config/rc.xml /home/nobody/.config/openbox/rc.xml
 
 # copy settings to home directory (sets tint2 theme)
-mkdir -p /home/nobody/.config/tint2/theme
-cp /home/nobody/.build/tint2/theme/tint2rc /home/nobody/.config/tint2/theme/tint2rc
+#mkdir -p /home/nobody/.config/tint2/theme
+#cp /home/nobody/.build/tint2/theme/tint2rc /home/nobody/.config/tint2/theme/tint2rc
 
 # config - novnc
 ####
@@ -102,59 +96,18 @@ sed -i -E 's~\s+<link rel="icon" sizes.*~    <link rel="icon" sizes="16x16" type
 # replace all novnc home screen (used for tablets etc) icon sizes with fixed 16x16 icon
 sed -i -E 's~\s+<link rel="apple-touch-icon" sizes.*~    <link rel="apple-touch-icon" sizes="16x16" type="image/png" href="app/images/icons/novnc-16x16.png">~g' "/usr/share/webapps/novnc/vnc.html"
 
-# create openbox menu items to add in application
-cat <<'EOF' > /home/nobody/.config/openbox/menu.xml
-<?xml version="1.0" encoding="UTF-8"?>
-
-<openbox_menu xmlns="http://openbox.org/3.4/menu">
-
-<menu id="root-menu" label="Openbox 3">
-  <separator label="Applications" />
-    <item label="Xfce Terminal">
-    <action name="Execute">
-      <command>xfce4-terminal</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-    </item>
-    <!-- APPLICATIONS_PLACEHOLDER -->
-  <separator label="Utils" />
-    <item label="Openbox config">
-    <action name="Execute">
-      <command>obconf</command>
-      <startupnotify><enabled>yes</enabled></startupnotify>
-    </action>
-    </item>
-    <item label="Openbox menu">
-    <action name="Execute">
-      <command>obmenu</command>
-      <startupnotify><enabled>yes</enabled></startupnotify>
-    </action>
-    </item>
-    <item label="GTK theme">
-    <action name="Execute">
-      <command>lxappearance</command>
-      <startupnotify><enabled>yes</enabled></startupnotify>
-    </action>
-    </item>
-</menu>
-
-</openbox_menu>
-EOF
-
 # set a background color for openbox (slightly lighter than default to contrast taskbar)
-cat <<'EOF' > /home/nobody/.config/openbox/autostart
-BG=""
-if which hsetroot >/dev/null 2>/dev/null; then
-  BG=hsetroot
-elif which esetroot >/dev/null 2>/dev/null; then
-  BG=esetroot
-elif which xsetroot >/dev/null 2>/dev/null; then
-  BG=xsetroot
-fi
-test -z $BG || $BG -solid "#4d4d4d"
-EOF
+#cat <<'EOF' > /home/nobody/.config/openbox/autostart
+#BG=""
+#if which hsetroot >/dev/null 2>/dev/null; then
+#  BG=hsetroot
+#elif which esetroot >/dev/null 2>/dev/null; then
+#  BG=esetroot
+#elif which xsetroot >/dev/null 2>/dev/null; then
+#  BG=xsetroot
+#fi
+#test -z $BG || $BG -solid "#4d4d4d"
+#EOF
 
 # env vars
 ####
@@ -211,4 +164,4 @@ chmod -R 775 "${install_paths}"
 chown -R nobody:users "${install_paths}"
 
 # cleanup
-cleanup.sh
+# cleanup.sh

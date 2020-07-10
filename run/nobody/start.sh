@@ -78,14 +78,15 @@ fi
 # starts novnc (web vnc client) - note also starts websockify to connect novnc to tigervnc server
 /usr/sbin/websockify --web /usr/share/webapps/novnc/ 6080 localhost:5900 &
 
-# start dbus (required for libreoffice menus to be viewable when started via openbox right click menu) and launch openbox (window manager)
-dbus-launch openbox-session &
+# start dbus (required for libreoffice menus to be viewable when started via openbox right click menu) and launch dwm
+dbus-launch dwm &
 
-# run xcomppmgr (required for transparency support for tint2)
+# run xcomppmgr (required for transparency support)
 sleep 2s; xcompmgr &
 
 # run tint2 (creates task bar) with custom theme (in while loop to restart on process end)
-sleep 2s; source /home/nobody/tint2.sh &
+# sleep 2s; source /home/nobody/tint2.sh &
+sleep 2s; dmenu &
 
 # STARTCMD_PLACEHOLDER
 
