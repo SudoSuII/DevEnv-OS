@@ -85,13 +85,13 @@ dbus-launch dwm &
 sleep 2s; xcompmgr &
 
 # set wallpaper
-sleep 2s; feh --bg-scale "/home/nobody/.themes/wallpaper.png" &
+sleep 2s; feh --bg-center "/home/nobody/.themes/wallpaper.png" &
 
 # run tint2 (creates task bar) with custom theme (in while loop to restart on process end)
 # sleep 2s; source /home/nobody/tint2.sh &
 
 # launch dmenu
-sleep 2s; dmenu &
+sleep 2s; dmenu_run &
 
 # STARTCMD_PLACEHOLDER
 

@@ -45,7 +45,7 @@ EXPOSE 6080
 ENV HOME /home/nobody
 
 # set environment variable for terminal
-ENV TERM xterm
+ENV TERM st
 
 # set environment variables for language
 ENV LANG en_GB.UTF-8
