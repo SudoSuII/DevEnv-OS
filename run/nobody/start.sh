@@ -81,18 +81,6 @@ fi
 # start dbus (required for libreoffice menus to be viewable when started via openbox right click menu) and launch dwm
 dbus-launch dwm &
 
-# run xcomppmgr (required for transparency support)
-sleep 2s; xcompmgr &
-
-# set wallpaper
-sleep 2s; feh --bg-center "/home/nobody/.themes/wallpaper.png" &
-
-# run tint2 (creates task bar) with custom theme (in while loop to restart on process end)
-# sleep 2s; source /home/nobody/tint2.sh &
-
-# launch dmenu
-sleep 2s; dmenu_run &
-
 # STARTCMD_PLACEHOLDER
 
 # run cat in foreground, this prevents start.sh script from exiting and ending all background processes
