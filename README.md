@@ -10,7 +10,7 @@ Arch Linux is an independently developed, i686/x86-64 general purpose GNU/Linux 
 
 This is an intermediate Docker image which is used as a base image for other Docker images which require a GUI's.
 
-Forked from rcannizzaro (with thanks!)
+Forked from Binhex (with thanks!)
 
 **Access via web interface (noVNC)**
 
