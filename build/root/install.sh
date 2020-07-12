@@ -43,7 +43,8 @@ fi
 
 # Define pacman packages
 
-pacman_packages="xorg-fonts-misc xorg-server-xvfb tigervnc python2-xdg lxappearance xcompmgr python-pip python-numpy openssh feh ttf-ibm-plex ttf-dejavu terminus-font ttf-dejavu cantarell-fonts gnu-free-fonts wmname"
+pacman_packages="xorg-fonts-misc xorg-server-xvfb tigervnc python2-xdg lxappearance xcompmgr python-pip python-numpy openssh wmname nitrogen "
+pacman_packages+="ttf-ibm-plex ttf-dejavu terminus-font ttf-dejavu cantarell-fonts gnu-free-fonts ttf-jetbrains-mono"
 
 # Install compiled packages using pacman, updating database for Multilib support.
 
@@ -57,7 +58,7 @@ fi
 
 # Define AUR packages
 
-aur_packages="surf st novnc hsetroot ttf-font-awesome"
+aur_packages="surf st novnc hsetroot ttf-font-awesome ttf-symbola"
 
 # Call AUR Install Script
 
