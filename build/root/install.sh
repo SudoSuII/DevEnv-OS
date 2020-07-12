@@ -82,6 +82,10 @@ git clone https://github.com/rcannizzaro/DevEnv-DistroTube-DMenu.git
 cd DevEnv-DistroTube-DMenu
 sudo make clean install
 
+# Move into main directory
+
+cd /home/nobody/
+
 # Get and build DWM from source
 
 git clone https://github.com/rcannizzaro/DevEnv-DistroTube-DWM.git
