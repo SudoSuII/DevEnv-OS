@@ -58,7 +58,7 @@ fi
 
 # Define AUR packages
 
-aur_packages="surf st novnc hsetroot ttf-font-awesome ttf-symbola"
+aur_packages="surf st tabbed novnc hsetroot ttf-font-awesome ttf-symbola"
 
 # Call AUR Install Script
 
