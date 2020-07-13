@@ -16,4 +16,4 @@ xsetroot -solid black &
 
 # Launch DMenu
 
-dmenu_run &
+/usr/local/bin/dmenu_run &
