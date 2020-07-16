@@ -1,9 +1,5 @@
 #! /bin/bash
 
-# Run XCompMgr (required for transparency support)
-
-xcompmgr &
-
 # Set Wallpaper
 
 nitrogen --restore &
@@ -13,7 +9,3 @@ nitrogen --restore &
 
 wmname LG3D &
 xsetroot -solid black &
-
-# Launch DMenu
-
-/usr/local/bin/dmenu_run &

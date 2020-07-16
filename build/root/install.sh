@@ -43,7 +43,7 @@ fi
 
 # Define pacman packages
 
-pacman_packages="xorg-fonts-misc xorg-server-xvfb tigervnc python2-xdg lxappearance xcompmgr python-pip python-numpy openssh wmname nitrogen "
+pacman_packages="xorg-fonts-misc xorg-server-xvfb tigervnc python2-xdg lxappearance python-pip python-numpy openssh wmname nitrogen "
 pacman_packages+="ttf-ibm-plex ttf-dejavu terminus-font ttf-dejavu cantarell-fonts gnu-free-fonts ttf-jetbrains-mono"
 
 # Install compiled packages using pacman, updating database for Multilib support.
