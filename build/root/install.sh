@@ -43,7 +43,7 @@ fi
 
 # Define pacman packages
 
-pacman_packages="xorg-fonts-misc xorg-server-xvfb tigervnc python2-xdg lxappearance python-pip python-numpy openssh wmname nitrogen "
+pacman_packages="docker xorg-fonts-misc xorg-server-xvfb tigervnc lxappearance openssh wmname nitrogen neovim mc"
 pacman_packages+="ttf-ibm-plex ttf-dejavu terminus-font ttf-dejavu cantarell-fonts gnu-free-fonts ttf-jetbrains-mono"
 
 # Install compiled packages using pacman, updating database for Multilib support.
@@ -58,15 +58,11 @@ fi
 
 # Define AUR packages
 
-aur_packages="surf st tabbed novnc hsetroot ttf-font-awesome ttf-symbola"
+aur_packages="novnc hsetroot surf st tabbed ttf-font-awesome ttf-symbola"
 
 # Call AUR Install Script
 
 source aur.sh
-
-# Python Packages (needed for Curly?)
-
-pip install websockify PyXDG
 
 ##########################################################################################################################################################################################################################
 # GIT & MakePkg Builds
@@ -188,4 +184,4 @@ chmod -R 775 "${install_paths}"
 chown -R nobody:users "${install_paths}"
 
 # cleanup
-# cleanup.sh
+cleanup.sh
