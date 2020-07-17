@@ -1,4 +1,4 @@
-FROM rcannizzaro/devenv-arch-base:latest
+FROM archlinux/base
 MAINTAINER rcannizzaro
 
 # additional files
