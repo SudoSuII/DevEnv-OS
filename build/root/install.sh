@@ -12,7 +12,7 @@ set -e
 
 # Define pacman packages
 
-pacman_packages="unzip docker xorg-fonts-misc xorg-server-xvfb tigervnc lxappearance openssh wmname nitrogen neovim vifm "
+pacman_packages="unzip grep docker xorg-fonts-misc xorg-server-xvfb tigervnc lxappearance openssh wmname nitrogen neovim vifm "
 pacman_packages+="ttf-ibm-plex ttf-dejavu terminus-font ttf-dejavu cantarell-fonts gnu-free-fonts ttf-jetbrains-mono"
 
 # Install compiled packages using pacman, updating database for Multilib support.
