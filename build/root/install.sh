@@ -6,6 +6,21 @@
 
 set -e
 
+##########################################################################################################################################################################################################################
+# Pacman Packages
+##########################################################################################################################################################################################################################
+
+# Define pacman packages
+
+pacman_packages="unzip docker xorg-fonts-misc xorg-server-xvfb tigervnc lxappearance openssh wmname nitrogen neovim vifm "
+pacman_packages+="ttf-ibm-plex ttf-dejavu terminus-font ttf-dejavu cantarell-fonts gnu-free-fonts ttf-jetbrains-mono"
+
+# Install compiled packages using pacman, updating database for Multilib support.
+
+if [[ ! -z "${pacman_packages}" ]]; then
+	pacman -Sy --needed $pacman_packages --noconfirm
+fi
+
 ##############################################################################################################################################################################################################
 # Download build scripts from GitHub
 ##############################################################################################################################################################################################################
@@ -35,21 +50,6 @@ if [[ ! -z "${OS_ARCH}" ]]; then
 else
 	echo "[warn] Unable to identify OS_ARCH, defaulting to 'x86-64'"
 	OS_ARCH="x86-64"
-fi
-
-##########################################################################################################################################################################################################################
-# Pacman Packages
-##########################################################################################################################################################################################################################
-
-# Define pacman packages
-
-pacman_packages="docker xorg-fonts-misc xorg-server-xvfb tigervnc lxappearance openssh wmname nitrogen neovim vifm "
-pacman_packages+="ttf-ibm-plex ttf-dejavu terminus-font ttf-dejavu cantarell-fonts gnu-free-fonts ttf-jetbrains-mono"
-
-# Install compiled packages using pacman, updating database for Multilib support.
-
-if [[ ! -z "${pacman_packages}" ]]; then
-	pacman -Sy --needed $pacman_packages --noconfirm
 fi
 
 ##########################################################################################################################################################################################################################
