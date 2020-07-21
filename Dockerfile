@@ -22,6 +22,9 @@ ADD build/root/pacman.conf /etc/pacman.conf
 # install app
 #############
 
+# set nobody to use bash (allowing login)
+RUN su -s /bin/bash nobody
+
 # make executable and run bash scripts to install app
 RUN chmod +x /root/*.sh && \
 	/bin/bash /root/install.sh
