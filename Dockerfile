@@ -20,7 +20,9 @@ ADD config/nobody/ /home/nobody/.build/
 ADD build/root/pacman.conf /etc/pacman.conf
 
 # Add user
-RUN adduser --disabled-password --gecos '' nobody
+RUN useradd -ms /bin/bash nobody
+USER nobody
+WORKDIR /home/nobody
 
 # install app
 #############
