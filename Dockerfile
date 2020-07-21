@@ -19,8 +19,7 @@ ADD config/nobody/ /home/nobody/.build/
 # Add custom pacman.conf
 ADD build/root/pacman.conf /etc/pacman.conf
 
-# Add user
-RUN useradd -ms /bin/bash nobody
+# Switch user
 USER nobody
 WORKDIR /home/nobody
 
