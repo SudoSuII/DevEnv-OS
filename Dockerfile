@@ -1,5 +1,4 @@
-FROM archlinux/base
-MAINTAINER rcannizzaro
+FROM archlinux:latest
 
 # additional files
 ##################
